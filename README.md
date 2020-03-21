@@ -1,9 +1,6 @@
-# linear_algebra
+# linear_algebra, # nodejs, # JavaScript fundamentals (ES6 )
 this repository contains simple code examples in javascript, exploring both syntax and capabilities of javascrpt ES6, as well as fundamentals of linear algebra (matrices, cartesian products, vectors)
 
-# nodejs
-# ES6
-# JavaScript fundamentals
 
  to run examples in node js 
 

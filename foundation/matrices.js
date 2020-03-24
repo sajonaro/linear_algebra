@@ -76,6 +76,14 @@ module.exports = {
         return result;
     },
 
+
+    //return result of  R = A ^(-1 ) of A 
+    // such that AR = R, A must be square (m = n)   
+    //https://en.wikipedia.org/wiki/Invertible_matrix
+    getInverseMatrix: function(n, matrix) {
+        throw Error("not implemented exception");
+    },
+
     //scalar product of vectors
     getScalarProductOfVectors: function(vectorA, vectorB) {
         if (vectorA.length !== vectorB.length)
@@ -88,6 +96,19 @@ module.exports = {
         let v2 = vectorB.slice();
 
         return v1.pop() * v2.pop() + this.getScalarProductOfVectors(v1, v2);
+    },
+
+    // for given matrix A and vector v 
+    // get k = A * v 
+    getTransformedVector: function(vector, matrix) {
+        if (!this.isMatrix(matrix))
+            throw Error("second argument has to be a valid matrix");
+
+        if (vector.length !== this.getNumberOfColumns(matrix))
+            throw Error("dimensions mismatch: can't apply matrix to vector ");
+
+        return matrix.map(row => this.getScalarProductOfVectors(vector, row));
+
     },
 
     //get row number N of matrix A
@@ -122,4 +143,6 @@ module.exports = {
     isMatrix: function(matrix) {
         return Array.isArray(matrix) && Array.isArray(matrix[0])
     }
+
+
 };
